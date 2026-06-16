@@ -1,0 +1,19 @@
+{
+  "name": "商务分析期末刷题",
+  "short_name": "商务分析刷题",
+  "description": "商务分析方法与工具期末复习手机刷题卡片。",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#0f766e",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "./icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
