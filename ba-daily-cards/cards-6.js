@@ -1,0 +1,17 @@
+window.cardDeckParts = window.cardDeckParts || [];
+window.cardDeckParts.push({"id":"d6","date":"2026-06-29","name":"D6 文本/SNA","topic":"文本挖掘与社交网络","cards":[
+{"type":"flash","tag":"文本挖掘","q":"文本挖掘这一章要抓哪些步骤？","answerText":"重点抓分词、去停用词、词干提取、词性标注、情感分析、向量空间模型和相似度计算。考试一般问作用、流程和应用。","source":"05 Text Mining.pdf 第2页；期末复习.pdf 第4页"},
+{"type":"choice","tag":"分词","q":"中文文本挖掘中，为什么分词更难？","options":["中文没有天然空格，需要结合词典和语境","中文不能做文本挖掘","中文没有停用词","中文不能向量化"],"answer":0,"explain":"英文可按空格分开，中文通常要借助词典和语境判断词边界。","source":"05 Text Mining.pdf 第4页"},
+{"type":"choice","tag":"停用词","q":"去停用词主要去掉什么？","options":["使用频率高但区分度低的词，如“的”“在”“a”“the”","所有名词","所有情感词","所有数字"],"answer":0,"explain":"停用词常见、信息量低，去掉后有助于降低噪声。","source":"05 Text Mining.pdf 第6页"},
+{"type":"choice","tag":"情感分析","q":"判断评论是 positive 还是 negative，属于什么？","options":["情感分析","网络密度","K-means 初始中心","Lift"],"answer":0,"explain":"课件中情感分析可通过情感词典等方式判断正负倾向。","source":"05 Text Mining.pdf 第13页"},
+{"type":"choice","tag":"VSM","q":"向量空间模型把文档表示成什么？","options":["高维向量空间中的点","网络中的边","混淆矩阵","购物篮交易"],"answer":0,"explain":"每个维度对应词汇表中的词，常用于文本相似度、检索和文本分类。","source":"05 Text Mining.pdf 第18-19页"},
+{"type":"choice","tag":"TF-IDF","q":"TF-IDF 主要衡量什么？","options":["词对某篇文档的重要性","节点桥接能力","分类模型准确率","网络密度"],"answer":0,"explain":"TF-IDF=词频相关函数 x 逆文档频率相关函数，用来降低常见词、突出有区分度的词。","source":"05 Text Mining.pdf 第26-28页"},
+{"type":"flash","tag":"SNA 定义","q":"社交网络由什么构成？","answerText":"网络由节点集合和边集合构成。节点可以是个人、组织、国家等；边表示节点之间的关系、交互或信息流，可有向/无向、有权/无权。","source":"13 Social Network Analysis.pdf 第5页；期末复习.pdf 第7页"},
+{"type":"choice","tag":"边强度","q":"用互动频率、交流信息量、时间投入衡量关系强弱，属于哪类 SNA 测度？","options":["边强度","提升度","KNN","词干提取"],"answer":0,"explain":"Tie strength 用边的权重表示关系强度。","source":"13 Social Network Analysis.pdf 第21页"},
+{"type":"choice","tag":"网络密度","q":"无向网络 5 个节点、6 条边，密度是多少？","options":["0.4","0.5","0.6","0.75"],"answer":2,"explain":"无向图最多边数 n(n-1)/2=5*4/2=10，密度=6/10=0.6。","source":"13 Social Network Analysis.pdf 第25页、第27页；期末复习.pdf 第6页"},
+{"type":"choice","tag":"直径","q":"网络直径指什么？","options":["任意两个节点之间最长的最短路径","所有边的平均权重","节点总数","最大支持度"],"answer":0,"explain":"直径反映网络中最多需要多远才能到达另一个节点。","source":"13 Social Network Analysis.pdf 第28-29页"},
+{"type":"choice","tag":"度中心性","q":"一个节点直接连接很多其他节点，说明它什么中心性高？","options":["度中心性","中间中心性","接近中心性","TF-IDF"],"answer":0,"explain":"度中心性常用于衡量节点关联度、影响力或受欢迎程度。","source":"13 Social Network Analysis.pdf 第31-33页"},
+{"type":"choice","tag":"中间中心性","q":"某用户经常处在不同群体沟通路径中，像桥梁一样，这更像什么中心性？","options":["中间中心性","度中心性","接近中心性","Specificity"],"answer":0,"explain":"中间中心性衡量节点对资源/信息流的控制程度，常用于找桥接节点。","source":"13 Social Network Analysis.pdf 第34-37页"},
+{"type":"choice","tag":"接近中心性","q":"一个节点到其他节点平均距离短，说明它什么中心性较高？","options":["接近中心性","支持度","置信度","词干提取"],"answer":0,"explain":"接近中心性越高，通常说明该节点能更快触达其他节点。","source":"13 Social Network Analysis.pdf 第38-40页"},
+{"type":"write","tag":"综合练习","q":"解释度中心性、中间中心性、接近中心性，并各写一个业务含义。","hint":"度：连接多，适合找活跃/受欢迎用户；中间：桥梁，适合找跨圈层传播者；接近：距离短，适合找快速扩散节点。","source":"13 Social Network Analysis.pdf 第31-40页"}
+]});
