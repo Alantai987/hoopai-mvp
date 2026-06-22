@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#0f766e">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="商务分析每日卡">
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./style.css">
+  <title>商务分析每日卡片</title>
+</head>
+<body>
+  <main class="app">
+    <header class="top">
+      <div class="title">
+        <div>
+          <h1>商务分析每日卡片</h1>
+          <p id="topic">用做题来学，不硬背</p>
+        </div>
+        <strong id="count">0/0</strong>
+      </div>
+      <div class="bar"><span id="bar"></span></div>
+      <nav id="days" class="days"></nav>
+    </header>
+
+    <section id="card" class="card"></section>
+  </main>
+
+  <footer class="bottom">
+    <button id="prev" type="button">上一张</button>
+    <button id="jump" type="button">题号</button>
+    <button id="next" type="button">下一张</button>
+  </footer>
+
+  <div id="sheet" class="sheet" aria-hidden="true">
+    <div class="panel">
+      <div class="panel-head">
+        <h2>选一张卡片</h2>
+        <button id="close" type="button">×</button>
+      </div>
+      <div id="nums" class="nums"></div>
+    </div>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>
