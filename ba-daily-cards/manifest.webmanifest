@@ -1,0 +1,10 @@
+{
+  "name": "商务分析每日卡片",
+  "short_name": "每日卡片",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f4f6f8",
+  "theme_color": "#0f766e",
+  "orientation": "portrait"
+}
