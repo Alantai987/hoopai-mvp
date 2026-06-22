@@ -10,6 +10,7 @@ const els = {
   count: document.querySelector("#count"),
   bar: document.querySelector("#bar"),
   days: document.querySelector("#days"),
+  study: document.querySelector("#study"),
   card: document.querySelector("#card"),
   prev: document.querySelector("#prev"),
   next: document.querySelector("#next"),
@@ -37,6 +38,10 @@ function cardId(cardIndex = idx) {
   return `${deckId}-${cardIndex}`;
 }
 
+function studyId(stepIndex) {
+  return `${deckId}-study-${stepIndex}`;
+}
+
 function save() {
   localStorage.setItem(storeKey, JSON.stringify(state));
 }
@@ -47,6 +52,41 @@ function doneCount() {
 
 function sourceHtml(card) {
   return `<div class="source"><strong>查答案：</strong>${card.source}</div>`;
+}
+
+function studyDoneCount() {
+  const steps = deck().study?.steps || [];
+  return steps.filter((_, i) => state[studyId(i)]?.done).length;
+}
+
+function renderStudy() {
+  const plan = deck().study;
+  if (!plan) {
+    els.study.innerHTML = "";
+    return;
+  }
+  const done = studyDoneCount();
+  const steps = plan.steps.map((step, i) => {
+    const checked = state[studyId(i)]?.done;
+    return `<button class="study-step ${checked ? "checked" : ""}" data-step="${i}" type="button">
+      <span class="box">${checked ? "✓" : ""}</span>
+      <span><strong>${step.time} · ${step.title}</strong><em>${step.detail}</em><small>${step.source}</small></span>
+    </button>`;
+  }).join("");
+  els.study.innerHTML = `<div class="study-head">
+    <div><h2>今日学习任务</h2><p>先学完这 ${plan.steps.length} 步，再做下面 20 题。</p></div>
+    <strong>${done}/${plan.steps.length}</strong>
+  </div>
+  <div class="study-time">预计用时：${plan.total}</div>
+  <div class="study-list">${steps}</div>`;
+  els.study.querySelectorAll(".study-step").forEach(btn => {
+    btn.onclick = () => {
+      const key = studyId(Number(btn.dataset.step));
+      state[key] = { done: !state[key]?.done };
+      save();
+      render();
+    };
+  });
 }
 
 function renderDays() {
@@ -157,6 +197,7 @@ function render() {
   els.prev.disabled = idx === 0;
   els.next.disabled = idx === d.cards.length - 1;
   renderDays();
+  renderStudy();
   renderCard();
   renderNums();
 }
