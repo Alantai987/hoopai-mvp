@@ -1,0 +1,23 @@
+window.cardDeckParts = window.cardDeckParts || [];
+window.cardDeckParts.push({
+  "id":"d3",
+  "date":"2026-06-24",
+  "name":"D3 关联",
+  "topic":"Support、Confidence、Lift",
+  "cards":[
+    {"type":"flash","tag":"定义","q":"什么是关联规则挖掘？","answerText":"从交易数据库、关系数据库或其他数据集中发现频繁模式和关联规则的过程。典型例子是购物篮分析，如 diapers -> beers。","source":"06 Association Rule Mining.pdf 第6页"},
+    {"type":"choice","tag":"场景","q":"“买咖啡的人经常也买蛋糕”最适合用哪种方法？","options":["关联规则","KNN 分类","DBSCAN 聚类","RNN"],"answer":0,"explain":"这是发现商品或行为之间的共现关系，典型是关联规则/购物篮分析。","source":"06 Association Rule Mining.pdf 第3-6页；期末复习.pdf 第5页"},
+    {"type":"choice","tag":"有用规则","q":"有用的关联规则通常至少要满足什么？","options":["高支持度和高置信度","低支持度和低置信度","只要置信度高就够","只要商品贵就够"],"answer":0,"explain":"支持度保证模式足够常见，置信度保证规则有一定可靠性。后面还要看 Lift 判断是否真正有提升。","source":"06 Association Rule Mining.pdf 第7页、第45-48页"},
+    {"type":"choice","tag":"项集","q":"在购物篮分析中，{牛奶, 面包} 这样的集合叫做什么？","options":["项集","混淆矩阵","节点","隐藏层"],"answer":0,"explain":"项集是由若干商品/项目组成的集合，频繁项集是支持度达到阈值的项集。","source":"06 Association Rule Mining.pdf 第8-9页"},
+    {"type":"choice","tag":"Support","q":"1000 笔交易中，120 笔同时包含 A 和 B，Support(A -> B) 是？","options":["12%","40%","50%","1.67"],"answer":0,"explain":"关联规则支持度等于同时包含 X 和 Y 的记录数除以总记录数：120/1000=12%。","source":"06 Association Rule Mining.pdf 第9-10页"},
+    {"type":"choice","tag":"Confidence","q":"1000 人中 300 人买 A，120 人同时买 A 和 B，Confidence(A -> B) 是？","options":["12%","24%","40%","60%"],"answer":2,"explain":"置信度是含 A 的记录中也含 B 的比例：120/300=40%。","source":"06 Association Rule Mining.pdf 第11页"},
+    {"type":"choice","tag":"强规则","q":"若 minsup=10%，minconf=50%，某规则 Support=12%，Confidence=40%，它是强关联规则吗？","options":["是","不是，因为置信度不达标","不是，因为支持度不达标","无法判断"],"answer":1,"explain":"强关联规则必须同时满足最小支持度和最小置信度。","source":"06 Association Rule Mining.pdf 第12页"},
+    {"type":"flash","tag":"Apriori","q":"Apriori 方法的剪枝思想是什么？","answerText":"任何频繁项集的子集一定频繁；反过来，任何非频繁项集的超集一定非频繁。因此可以剪掉不可能成为频繁项集的候选项集。","source":"06 Association Rule Mining.pdf 第19页"},
+    {"type":"choice","tag":"Apriori 步骤","q":"Apriori 的主要流程先做什么？","options":["发现所有频繁项集，再生成关联规则并检查置信度","先训练神经网络","先计算网络直径","先做情感分析"],"answer":0,"explain":"先从 k=1 开始找频繁 k 项集，再生成候选 k+1 项集，最后由频繁项集生成规则。","source":"06 Association Rule Mining.pdf 第21页"},
+    {"type":"choice","tag":"Lift","q":"如果 P(B|A)=40%，P(B)=20%，Lift(A -> B) 是？","options":["0.5","1","2","20"],"answer":2,"explain":"Lift=P(B|A)/P(B)=0.40/0.20=2，表示 A 让 B 出现概率变为基准的 2 倍。","source":"06 Association Rule Mining.pdf 第45-48页"},
+    {"type":"choice","tag":"Lift 判断","q":"Lift=1 表示什么？","options":["X 与 Y 基本独立","X 强烈提高 Y 概率","X 降低 Y 概率","支持度为 100%"],"answer":0,"explain":"Lift=1 表示前件没有改变后件发生概率；Lift>1 是正向提升；Lift<1 是负向关系。","source":"06 Association Rule Mining.pdf 第48页"},
+    {"type":"flash","tag":"易错点","q":"为什么高 Confidence 不一定代表规则有用？","answerText":"因为后件本来就可能很常见。比如很多人本来就买牛奶，任何商品 -> 牛奶 都可能有高置信度，所以要看 Lift 是否大于 1。","source":"06 Association Rule Mining.pdf 第45页"},
+    {"type":"write","tag":"计算练习","q":"某商店 1000 笔交易，A 出现 250 笔，B 出现 400 笔，A 和 B 同时出现 150 笔。请计算 Support、Confidence、Lift。","hint":"答案路径：Support=150/1000；Confidence=150/250；Lift=Confidence/(400/1000)。最后解释 Lift 是否大于 1。","source":"06 Association Rule Mining.pdf 第9-11页、第45-50页"},
+    {"type":"write","tag":"应用练习","q":"如果你是超市分析师，如何用关联规则提高交叉销售？","hint":"写交易数据、清洗购物篮、设置 minsup/minconf、用 Apriori 找规则、用 Lift 过滤有效规则、部署到捆绑促销/推荐位，并监控转化率。","source":"06 Association Rule Mining.pdf 第6-7页、第19-21页、第45-50页"}
+  ]
+});
