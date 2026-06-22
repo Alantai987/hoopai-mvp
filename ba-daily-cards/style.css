@@ -73,6 +73,16 @@ p { margin: 4px 0 0; color: var(--muted); font-size: 13px; }
 .tag { border-radius: 999px; background: #eef2f6; color: #344054; padding: 4px 10px; font-size: 12px; font-weight: 900; }
 .kind { color: var(--muted); font-size: 13px; }
 .q { margin: 0; font-size: 19px; line-height: 1.55; font-weight: 900; }
+.source {
+  margin-top: 12px;
+  border: 1px solid #c7d7fe;
+  border-radius: 8px;
+  background: #eef4ff;
+  color: #1e3a8a;
+  padding: 10px 12px;
+  line-height: 1.5;
+  font-size: 13px;
+}
 .hint, .answer, .feedback {
   margin-top: 14px;
   border-radius: 8px;
